@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>糗百</title>
+	<style type="text/css">
+		*{
+			margin:0;
+			padding:0;
+		}
+		body{
+			background-color: #f3f3f3;
+		}
+		.box{
+			width:100%;
+			height:100%;
+			border: 1px solid;
+			background-color: rgba(0,0,0,0.5);
+			position: fixed;
+			left:0px;
+			top:0px;
+			z-index: 998;
+		}
+		header{
+			height: 82px;
+			width: 100%;
+			background-color: #FFD62B;
+		}
+		header .header-content{
+			width:1000px;
+			height:82px;
+			margin:0 auto;
+		}
+		header .header-content .logo{
+			display: inline-block;
+			height:79px;
+			width: 207px;
+			background: url(img/icongroup.png) no-repeat;
+		}
+		header .header-content .nav{
+			width:580px;
+			height:82px;
+			vertical-align: top;
+			display: inline-block;
+		}
+		header .header-content .nav li {
+			width: 61px;
+			height:78px;
+			line-height:82px;
+			list-style:none;
+			display:inline-block;
+			text-align: center;
+			border-bottom:4px solid transparent;
+		}
+		header .header-content .nav .li{
+			border-bottom-color: #FF9F14;
+		}
+		header .header-content .nav li:hover{
+			background: #FFE36F;
+		}
+		header .header-content .nav li a{
+			text-decoration:none;
+			color:#6A3906;
+			font-size: 16px;
+		}
+		header .header-content #login{
+			float: right;
+			width:100px;
+			height:82px;
+			line-height: 82px;
+			text-align: center;
+			font-weight: bold;
+			color:#6A3906;
+			cursor:pointer;
+		}
+
+
+		#form{
+			width:410px;
+			height:500px;
+			border:1px solid;
+			border-radius: 5px 5px;
+			background-color: #FEFEFE;
+			box-shadow: 2px 2px 10px ;
+			margin-top: -251px;
+			margin-left: -206px;
+			position: fixed;
+			left:50%;
+			top:50%;
+			z-index: 999;
+		}
+
+		#form .shejiao-login{
+			width:300px;
+			height:210px;
+			margin:30px auto;
+			border-bottom:1px solid #ccc;
+		}
+		#form .shejiao-login a{
+			text-decoration: none;
+			display: inline-block;
+		}
+		#form .shejiao-login h4{
+			color:#5D5D5D;
+			height:30px;
+			font-weight:normal;
+		}
+		#form .shejiao-login div{
+			width:300px;
+			height:40px;
+			line-height: 40px;
+			text-align: center;
+			color:#fff;
+			font-weight: bold;
+			border-radius: 3px;
+			margin-top: 10px;
+		}
+		#form .shejiao-login .QQ{			
+			background:url(img/QQ.png) no-repeat;			
+		}
+		#form .shejiao-login .weixin{			
+			background: url(img/wechat.png) no-repeat;
+		}
+		#form .shejiao-login .weibo{		
+			background:url(img/weibo.png) no-repeat;			
+		}
+		#form .qiushi-login{
+			width:300px;
+			height:200px;
+			margin:20px auto;
+		}
+		#form .qiushi-login h3{
+			color:#5D5D5D;
+			height:35px;
+			font-weight:normal;
+		}
+		#form .qiushi-login input{
+			width: 296px;
+			height:40px;
+			border:none;
+		}
+		#form .qiushi-login div{
+			border:1px solid #ccc;
+		}
+		#form .qiushi-login div:nth-child(3){
+			border-top:none;
+		}
+		#form .qiushi-login #login2 a{
+			width:300px;
+			height:40px;
+			text-align: center;
+			line-height: 40px;
+			background: #FABE2E;
+			color:#fff;
+			text-decoration: none;
+			display: inline-block;
+			font-weight: bold;
+			margin-top: 10px;
+			margin-bottom: 10px;
+		}
+		#form .qiushi-login p a{
+			font-size: 12px;
+			color:#ccc;
+		}
+
+
+
+		#content{
+			width:1000px;
+			margin:0 auto;
+			border-right:1px solid #666;
+			margin-top: 20px;
+		}
+		#content .content-left{
+			width:640px;
+			display: inline-block;
+			border:1px solid gray;
+		}
+		#content .content-left .content-left-l{
+			width:600px;
+			display: block;
+			padding:10px;
+			background-color: #fff;
+			margin: 10px;
+		}
+		#content .content-left-head img{
+			width:40px;
+			height: 40px;
+			border-radius: 50%;
+			vertical-align: middle;
+		}
+		#content .content-left-head span{
+			padding:10px;
+			font-size: 14px;
+			color:#666;
+		}
+		#content .content-content{
+			padding: 10px 0;
+		}
+		#content .content-left p{
+			color:#666;
+		}
+		#content .content-left-bottom .left-down,.right-down{
+			padding-top: 10px;
+		}
+		#content .content-left-bottom .left-down a, .right-down a{
+			width:25px;
+			height:25px;
+		}
+		#content .content-left-bottom .left-down,.right-down,.left-down a, .right-down a{
+			display: inline-block;
+		}
+		#content .content-left-bottom .left-down a:nth-child(1){
+			background:url(img/icongroup.png) no-repeat 0px -196px;
+		}
+		#content .content-left-bottom .left-down a:nth-child(2){
+			background:url(img/icongroup.png) no-repeat 0px -220px;
+		}
+		#content .content-left-bottom .left-down a:nth-child(3){
+			background:url(img/icongroup.png) no-repeat 0px -172px;
+		}
+		#content .content-left-bottom .right-down{
+			padding-left: 320px;
+		}
+		#content .content-left-bottom .right-down a:nth-child(1){
+			background:url(img/icongroup.png) no-repeat 0px -75px;
+		}
+		#content .content-left-bottom .right-down a:nth-child(2){
+			background:url(img/icongroup.png) no-repeat 0px -148px;
+		}
+		#content .content-left-bottom .right-down a:nth-child(3){
+			background:url(img/icongroup.png) no-repeat 0px -124px;
+		}
+		#content .content-left-bottom .right-down a:nth-child(4){
+			background:url(img/icongroup.png) no-repeat 0px -99px;
+		}
+
+		#content .content-right{
+			width: 300px;
+			float: right;
+		}
+		#content .content-right .sideber1{
+			width: 300px;
+			height: 250px;
+			background: url("img/09.jpg") no-repeat;
+			transition: 2s;
+		}
+		#content .content-right .sideber1:hover{
+			transform:rotateY(360deg);
+		}
+		#content .content-right .sideber2{
+			width: 300px;
+			height: 250px;
+			margin-top:20px;
+		}
+		#content .content-right .sideber2 img{
+			width: 131px;
+			height: 100px;
+			margin: 5px;
+		}
+		#content .content-right .sideber2 a span{
+			display: inline-block;
+		}
+		#content .content-right .sideber2 .yuanhuasj a{
+			text-align: center;
+			display: inline-block;
+			font-size: 12px;
+			color: blue;
+			text-decoration:none;
+			padding-left: 50px;
+		}
+		#content .content-right .sideber2 .yuanhuasj a:nth-child(2){
+			padding-left: 90px;
+		}
+	</style>
+	<script type="text/javascript" src="lib/jquery-1.11.3.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("header .nav li").click(function(){
+				$(this).addClass('li').siblings().removeClass('li');
+			});
+			$("header .header-content #login").click(function(){
+				$("#form").toggle();
+				$(".other").addClass('box')
+			});
+			$(".other").click(function(){
+				$("#form").toggle();
+				$(".other").removeClass('box');
+			});
+
+			function apped1(data){
+				for(var i = 0 ; i <= 7 ; i ++){
+					var content_left = $('<div class="content-left-l"><div class="content-left-head"><img src="" alt="加载失败"><span></span></div><div class="content-content"></div><p></p><div class="content-left-bottom"><div class="left-down"><a href="#"></a><a href="#"></a><a href="#"></a></div><div class="right-down"><a href="#"></a><a href="#"></a><a href="#"></a><a href="#"></a></div></div></div>');
+					$(content_left).find("img").attr("src",data[i].src);
+					$(content_left).find("span").text(data[i].username);
+					$(content_left).find(".content-content").text(data[i].content);
+					$(content_left).find("p").text(data[i].number);
+					$("#content .content-left").append(content_left);
+				}
+			}
+			
+			$.ajax({
+				url:"info.json",
+				type:"post",
+				dataType: "json",
+				cache: true,
+				success:function(data){
+					apped1(data.data);
+				}
+			});	
+		})
+	</script>
+</head>
+<body>
+	<header>
+		<div class="header-content">
+			<a class="logo" href="#"></a>
+			<ul class="nav">
+				<li class="li"><a href="#">热门</a></li>
+				<li><a href="#">24小时</a></li>
+				<li><a href="#">热图</a></li>
+				<li><a href="#">文字</a></li>
+				<li><a href="#">穿越</a></li>
+				<li><a href="#">糗图</a></li>
+				<li><a href="#">新鲜</a></li>
+				<li><a href="#">投稿</a></li>
+			</ul>
+			<div id="login">登录</div>
+		</div>
+	</header>
+	<section id="form" hidden="hidden">
+		<div class="shejiao-login">
+			<h4>社交账号登陆</h4>
+			<div class="QQ"><a href="#">使用QQ账号登陆</a></div>
+			<div class="weixin"><a href="#">使用微信账号登陆</a></div>
+			<div class="weibo"><a href="#">使用微博账号登陆</a></div>
+		</div>
+		<form action="" class = "qiushi-login">
+			<h3>糗事百科账号登陆</h3>
+			<div>
+				<input type="text" placeholder="昵称或邮箱">
+			</div>
+			<div>						
+				<input type="password" name="password" placeholder="密码">
+			</div>
+			<span id="login2"><a href="#">登录</a></span>
+			<p><a href="#">忘记密码了要点我</a></p>
+		</form>				
+	</section>
+	<section id="content">
+		<div class="content-left">
+	   <!-- <div class="content-left-l">
+				<div class="content-left-head">
+					<img src="" alt="加载失败">
+					<span></span>
+				</div><div class="content-content"></div>
+				<p></p>
+				<div class="content-left-bottom">
+					<div class="left-down">
+						<a href="#"></a>
+						<a href="#"></a>
+						<a href="#"></a>
+					</div>
+					<div class="right-down">
+						<a href="#"></a>
+						<a href="#"></a>
+						<a href="#"></a>
+						<a href="#"></a>
+					</div>
+				</div>
+			</div> -->
+		</div>
+		<div class="content-right">
+			<div class="sideber1"></div>
+			<div class="sideber2">
+				<a href=""><img src="img/09.jpg" alt=""></a>
+				<a href=""><img src="img/10.jpg" alt=""></a>
+				<div class="yuanhuasj">
+					<a href="#">原画设计</a>
+					<a href="#">原画设计</a>
+				</div>
+				<a href=""><img src="img/09.jpg" alt=""></a>
+				<a href=""><img src="img/10.jpg" alt=""></a>
+				<div class="yuanhuasj">
+					<a href="#">原画设计</a>
+					<a href="#">原画设计</a>
+				</div>
+			</div>			
+		</div>
+	</section>
+	<footer class="footer"></footer>
+	<div class="other"></div>	
+</body>
+</html>
